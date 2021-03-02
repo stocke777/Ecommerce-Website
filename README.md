@@ -63,4 +63,4 @@
 
 <br>
 ## Password Reset
-![](images/8.PNG)
+![](images/11.PNG)
