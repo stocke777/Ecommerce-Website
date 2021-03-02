@@ -1,0 +1,15 @@
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="container">
+    {% for item in cart_items %}
+        {{item.item}} 
+        {{item.item.price}}
+        {{item.quantity}}
+        {{item.total}}
+        <br>
+    {% endfor %}
+    <h2>Total = {{total_price}}</h2>
+    <a href="{% url 'address' %}"><button class="btn btn-primary">Place Order</button></a>
+</div>
+
+{% endblock content %}

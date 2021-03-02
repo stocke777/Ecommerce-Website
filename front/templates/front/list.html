@@ -1,0 +1,27 @@
+
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="conatiner" id = "main">
+    <div class="container-fluid content-row">
+        <div class="row justify-content-around" id = "product_row">
+            {% for pro in products %}
+            <div class="card h-100">
+                <div class="card-header"><img src="/media/{{pro.product_images.first.image}}" class = "card-img-top"alt=""></div>
+                <div class="card-body">
+                    <a href="{% url 'product' pro.id%}" style = ""><button class = "btn btn-outline-info">{{pro.name}}</button></a>
+                    <h3 style = 'text-decoration: line-through;'>Rs.{{pro.mrp}}</h3>
+                    <h3>Rs.{{pro.price}}</h3>
+                </div>
+                <div class="card-footer">
+                    <button data-product = "{{pro.id}}" data-action = "add" class = "btn btn-outline-danger add-btn update-cart">Add To Cart</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+        
+        
+        
+    
+{% endblock content %}

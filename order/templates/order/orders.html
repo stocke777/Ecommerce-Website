@@ -1,0 +1,11 @@
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="container">
+    {% for item in item_list %}
+    {{forloop.counter}} <br>
+    {{item.item.name}}   {{item.quantity}} <br> <br>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'css/button.css' %}"> -->
+        
+
+        <script type="text/javascript">
+
+          var user = '{{request.user}}'
+
+          function getCookie(name) {
+            let cookieValue = null;
+              if (document.cookie && document.cookie !== '') {
+                  const cookies = document.cookie.split(';');
+                  for (let i = 0; i < cookies.length; i++) {
+                      const cookie = cookies[i].trim();
+                      // Does this cookie string begin with the name we want?
+                      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                          break;
+                      }
+                  }
+              }
+              return cookieValue;
+            }
+          const csrftoken = getCookie('csrftoken');
+
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item mr-2">
+                  <a href="" class="nav-link">{{user.email}}</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'cart' %} " class="nav-link">CART</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'orders' %} " class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'profile' %}" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                </li>
+                
+                {% else %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+              </ul>
+                {% endif %}
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+
+
+
+        {% block content %}{% endblock content %}
+
+        
+
+        <!-- Footer -->
+<footer class="bg-dark text-center text-lg-start text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Footer Content</h5>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+          voluptatem veniam, est atque cumque eum delectus sint!
+        </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-white">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 2</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 3</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 4</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-white">Link 1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 2</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 3</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Link 4</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <a class="text-white" href="">Ecommerce TestApp</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    </body>
+</html>

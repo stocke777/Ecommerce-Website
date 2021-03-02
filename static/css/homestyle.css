@@ -1,0 +1,80 @@
+
+.category{
+    width: 80%;
+    margin: auto;
+    height: 500px;
+    object-fit: cover;
+}
+
+#category-1{
+    background-image: url("/static/images/formal.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: cover;
+}
+#category-2{
+    background-image: url("/static/images/sneaker.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#category-3{
+    background-image: url("/static/images/heels.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home_button{
+    color: goldenrod;
+    font-size: 4em;
+    background-color: black;
+    border-radius: 15%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.box{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    text-align: center;
+}
+.card-body{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.card-body button {
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: black;
+    text-decoration: none;
+}
+.card-body a:hover{
+    color: white;
+}
+.card-body h3{
+    margin: 0%;
+    font-size: 1.6em;
+}
+
+.foot_container{
+    background-color: rgba(37, 30, 30, 0.836);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.foot_col{
+    display: flex;
+    flex-direction: column;
+}

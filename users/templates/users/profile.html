@@ -1,0 +1,14 @@
+{% extends 'front/base.html' %}
+
+{% block content %}
+    <div class = "container">
+        Firstname = {{profile.firstname}} <br>
+        Lastname = {{profile.lastname}} <br>
+        Phone = {{profile.phone}} <br>
+        Alt. Phone = {{profile.alt_phone}} <br>
+        Address 1 = {{profile.address}} <br>
+        Address 2 = {{profile.address2}} <br>
+        City = {{profile.city}} <br>
+        <a href="{% url 'profile_update' %}" class="btn btn-primary">Update</a>
+    </div>
+{% endblock content %}

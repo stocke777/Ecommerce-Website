@@ -1,0 +1,31 @@
+
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="container">
+
+    <div class="card">
+      <div class="card-header"><h1>{{product.name}} </h1></div>
+      <div class="card-body" style = "display: flex; justify-content: center;">
+        {% for img in images %}
+        <img src="{{img.image.url}}" alt="" style = "height: auto; width: 400px; margin: auto;">
+        {% endfor %}
+      </div> 
+      <div class="card-footer">
+            Mrp - <h4 style = "text-decoration: line-through;">{{product.mrp}}</h4><br>
+            Price - <h4>{{product.price}}</h4><br>
+          <h3>Brand - {{product.brand}}</h3>
+          <h4>Description - {{product.description}}</h4>
+          <button data-product = "{{product.id}}" data-action = "add" class = "btn btn-outline-success add-btn update-cart">Add To Cart</button>
+        </div>
+    </div>
+  </div>
+    <!-- Name - {{product.name}} <br>
+    Description - {{product.description}}<br>
+    Mrp - <h4 style = "text-decoration: line-through;">{{product.mrp}}</h4><br>
+    Price - <h4>{{product.price}}</h4><br>
+    Brand - {{product.brand}}<br>
+    <button data-product = "{{product.id}}" data-action = "add" class = "btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+    {% for img in images %}
+        <img src="{{img.image.url}}" alt="">
+    {% endfor %} -->
+{% endblock content %}

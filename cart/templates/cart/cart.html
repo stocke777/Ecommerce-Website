@@ -1,0 +1,19 @@
+{% extends 'front/base.html' %}
+{% block content %}
+    {% if items != "its EMPTY" %}
+        <div class="container">
+            <button class = "btn btn-danger"><a href="{% url 'clear_cart' %}" class = "text-white" style = "text-decoration: none;">Clear Cart</a></button>
+            <button class="btn btn-success"> <a href="{% url 'checkout' %}" class = "text-white" style = "text-decoration: none;">Checkout</a></button>
+        </div>
+        {% for item in items %}
+            <button><a href="{% url 'home' %}">{{item}}</a></button>
+            <h3 class = {{forloop.counter}}>{{item.quantity}}</h3>
+            {{item.total}}
+            <button data-product = "{{item.item.id}}" data-action = "inc" data-btn = "{{forloop.counter}}" class = "btn btn-outline-secondary add-btn increase {{forloop.counter}}">+</button>
+            <button data-product = "{{item.item.id}}" data-action = "dec" data-btn = "{{forloop.counter}}" class = "btn btn-outline-secondary add-btn decrease {{forloop.counter}}">-</button>
+        {% endfor %}
+    {% else %}
+        {{items}}
+    {% endif %}
+    
+{% endblock content %}

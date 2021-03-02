@@ -1,0 +1,12 @@
+{% extends 'front/base.html' %}
+{% block content %}
+<div class="container">
+    {{request.user}} <br>
+    {{profile.firstname}} {{profile.lastname}} <br>
+    {{profile.phone}} {{profile.alt_phone}} <br>
+    {{profile.address}} {{profile.city}} <br>
+    <button class="btn btn-success">Pay</button>
+</div>
+
+
+{% endblock content %}
