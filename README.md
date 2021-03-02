@@ -51,16 +51,20 @@
 ![](images/7.PNG)
 
 <br>
+
 ## Product Panel
 ![](images/8.PNG)
 
 <br/>
+
 ![](images/9.PNG)
 
 <br>
+
 ## Order Panel
 ![](images/10.PNG)
 
 <br>
+
 ## Password Reset
 ![](images/11.PNG)
